@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { BaseCommand, args } from '@adonisjs/core/build/standalone'
-import { string } from '@poppinss/utils/build/helpers'
+import { pascalCase } from 'pascal-case'
 
 export default class MakeStimulusController extends BaseCommand {
   /**
@@ -47,7 +47,7 @@ export default class MakeStimulusController extends BaseCommand {
   }
 
   private buildFilename(): string {
-    const pascalName = string.pascalCase(this.name)
+    const pascalName = pascalCase(this.name)
     return pascalName.toLowerCase().endsWith('controller') ? pascalName: `${pascalName}Controller`
   }
 }
