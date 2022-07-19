@@ -1,8 +1,8 @@
 import '../css/app.css'
 
 import * as Turbo from '@hotwired/turbo'
-import { Application } from 'stimulus'
-import { definitionsFromContext } from 'stimulus/webpack-helpers'
+import { Application } from '@hotwired/stimulus'
+import { definitionsFromContext } from '@stimulus/webpack-helpers'
 
 const application = Application.start()
 const context = require.context('./controllers', true, /\.js$/)
