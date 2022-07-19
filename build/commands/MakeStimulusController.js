@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = require("path");
 const standalone_1 = require("@adonisjs/core/build/standalone");
-const helpers_1 = require("@poppinss/utils/build/helpers");
+const pascal_case_1 = require("pascal-case");
 class MakeStimulusController extends standalone_1.BaseCommand {
     async run() {
         const stub = path_1.join(__dirname, '..', 'templates', 'StimulusController.txt');
@@ -27,7 +27,7 @@ class MakeStimulusController extends standalone_1.BaseCommand {
         await this.generator.run();
     }
     buildFilename() {
-        const pascalName = helpers_1.string.pascalCase(this.name);
+        const pascalName = pascal_case_1.pascalCase(this.name);
         return pascalName.toLowerCase().endsWith('controller') ? pascalName : `${pascalName}Controller`;
     }
 }
